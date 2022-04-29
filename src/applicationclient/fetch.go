@@ -4,7 +4,7 @@ import (
 	"errors"
 	"io/ioutil"
 	"net/http"
-	Account "rnoblega/client-form3/cmd/dto"
+	Account "rnoblega/client-form3/src/dto"
 )
 
 func (ac *ApplicationClient) Fetch(id string) (Account.AccountData, error) {

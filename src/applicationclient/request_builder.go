@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"encoding/json"
 	"net/http"
-	Configuration "rnoblega/client-form3/cmd/configuration"
-	Instrumentation "rnoblega/client-form3/cmd/configuration"
-	Account "rnoblega/client-form3/cmd/dto"
+	Configuration "rnoblega/client-form3/src/configuration"
+	Instrumentation "rnoblega/client-form3/src/configuration"
+	Account "rnoblega/client-form3/src/dto"
 )
 
 func buildRequestWithBody(account Account.AccountData, host string, path string, method string) *http.Request {

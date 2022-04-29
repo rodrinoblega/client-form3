@@ -2,7 +2,7 @@ package applicationclient
 
 import (
 	"net/http"
-	Account "rnoblega/client-form3/cmd/dto"
+	Account "rnoblega/client-form3/src/dto"
 	"time"
 )
 

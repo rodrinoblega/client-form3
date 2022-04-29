@@ -1,7 +1,7 @@
 package application
 
 import (
-	ApplicationClient "rnoblega/client-form3/cmd/applicationclient"
+	ApplicationClient "rnoblega/client-form3/src/applicationclient"
 	"time"
 )
 

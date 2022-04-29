@@ -1,7 +1,7 @@
 package applicationclient
 
 import (
-	Configuration "rnoblega/client-form3/cmd/configuration"
+	Configuration "rnoblega/client-form3/src/configuration"
 	"strconv"
 )
 

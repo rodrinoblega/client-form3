@@ -1,7 +1,7 @@
 package applicationclient
 
 import (
-	Instrumentation "rnoblega/client-form3/cmd/configuration"
+	Instrumentation "rnoblega/client-form3/src/configuration"
 )
 
 func handleError(err error) {
