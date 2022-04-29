@@ -9,10 +9,10 @@ import (
 	"time"
 )
 
-func Test_functional_Create(t *testing.T) {
+func TestFunctionalCreate(t *testing.T) {
 
 	randomId := uuid.New()
-	appClient := Application.New("localhost:8080", 5*time.Second)
+	app := Application.NewService("localhost:8080", 5*time.Second)
 
 	account := Account.AccountData{
 		ID:             randomId.String(),
@@ -28,15 +28,15 @@ func Test_functional_Create(t *testing.T) {
 		},
 	}
 
-	actualCreate, _ := appClient.ApplicationClient.Create(account)
+	actualCreate, _ := app.Service.Create(account)
 
 	assert.Equal(t, account, actualCreate)
 }
 
-func Test_functional_Fetch(t *testing.T) {
+func TestFunctionalFetch(t *testing.T) {
 
 	randomId := uuid.New()
-	appClient := Application.New("localhost:8080", 5*time.Second)
+	app := Application.NewService("localhost:8080", 5*time.Second)
 
 	account := Account.AccountData{
 		ID:             randomId.String(),
@@ -52,18 +52,18 @@ func Test_functional_Fetch(t *testing.T) {
 		},
 	}
 
-	actualCreate, _ := appClient.ApplicationClient.Create(account)
+	actualCreate, _ := app.Service.Create(account)
 
-	actualFetch, _ := appClient.ApplicationClient.Fetch(randomId.String())
+	actualFetch, _ := app.Service.Fetch(randomId.String())
 
 	assert.Equal(t, account, actualFetch)
 	assert.NotNil(t, actualCreate)
 }
 
-func Test_functional_Delete(t *testing.T) {
+func TestFunctionalDelete(t *testing.T) {
 
 	randomId := uuid.New()
-	appClient := Application.New("localhost:8080", 5*time.Second)
+	app := Application.NewService("localhost:8080", 5*time.Second)
 
 	account := Account.AccountData{
 		ID:             randomId.String(),
@@ -79,11 +79,11 @@ func Test_functional_Delete(t *testing.T) {
 		},
 	}
 
-	actualCreate, _ := appClient.ApplicationClient.Create(account)
+	actualCreate, _ := app.Service.Create(account)
 
-	actualDelete, _ := appClient.ApplicationClient.Delete(randomId.String(), 0)
+	actualDelete, _ := app.Service.Delete(randomId.String(), 0)
 
-	actualFetch, _ := appClient.ApplicationClient.Fetch(randomId.String())
+	actualFetch, _ := app.Service.Fetch(randomId.String())
 
 	assert.NotNil(t, actualCreate)
 	assert.True(t, actualDelete)

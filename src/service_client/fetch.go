@@ -1,4 +1,4 @@
-package applicationclient
+package service_client
 
 import (
 	"errors"
@@ -7,7 +7,7 @@ import (
 	Account "rnoblega/client-form3/src/dto"
 )
 
-func (ac *ApplicationClient) Fetch(id string) (Account.AccountData, error) {
+func (ac *Client) Fetch(id string) (Account.AccountData, error) {
 	var err error
 	path := obtainFetchPath(id)
 	request := buildRequest(ac.Host, path, http.MethodGet)

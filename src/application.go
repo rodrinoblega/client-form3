@@ -1,16 +1,16 @@
 package application
 
 import (
-	ApplicationClient "rnoblega/client-form3/src/applicationclient"
+	Service "rnoblega/client-form3/src/service_client"
 	"time"
 )
 
 type Application struct {
-	ApplicationClient ApplicationClient.ApplicationClientInterface
+	Service Service.ClientInterface
 }
 
-func New(host string, timeout time.Duration) *Application {
+func NewService(host string, timeout time.Duration) *Application {
 	return &Application{
-		ApplicationClient: ApplicationClient.NewAppClient(host, timeout),
+		Service: Service.NewClient(host, timeout),
 	}
 }

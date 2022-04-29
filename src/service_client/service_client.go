@@ -1,4 +1,4 @@
-package applicationclient
+package service_client
 
 import (
 	"net/http"
@@ -6,19 +6,19 @@ import (
 	"time"
 )
 
-type ApplicationClient struct {
+type Client struct {
 	Host   string
 	Client *http.Client
 }
 
-type ApplicationClientInterface interface {
+type ClientInterface interface {
 	Create(account Account.AccountData) (Account.AccountData, error)
 	Fetch(id string) (Account.AccountData, error)
 	Delete(id string, version int64) (bool, error)
 }
 
-func NewAppClient(host string, timeout time.Duration) *ApplicationClient {
-	return &ApplicationClient{
+func NewClient(host string, timeout time.Duration) *Client {
+	return &Client{
 		Host:   host,
 		Client: &http.Client{Timeout: timeout},
 	}

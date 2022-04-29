@@ -1,4 +1,4 @@
-package applicationclient
+package service_client
 
 import (
 	"errors"
@@ -7,7 +7,7 @@ import (
 	Account "rnoblega/client-form3/src/dto"
 )
 
-func (ac *ApplicationClient) Create(account Account.AccountData) (Account.AccountData, error) {
+func (ac *Client) Create(account Account.AccountData) (Account.AccountData, error) {
 	var err error
 	path := obtainCreatePath()
 	request := buildRequestWithBody(account, ac.Host, path, http.MethodPost)

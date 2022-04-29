@@ -1,4 +1,4 @@
-package applicationclient
+package service_client
 
 import (
 	Instrumentation "rnoblega/client-form3/src/configuration"

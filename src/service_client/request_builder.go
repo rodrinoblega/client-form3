@@ -1,4 +1,4 @@
-package applicationclient
+package service_client
 
 import (
 	"bytes"
