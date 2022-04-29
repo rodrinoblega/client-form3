@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func (ac *Client) Delete(id string, version int64) (bool, error) {
+func (ac *Gateway) Delete(id string, version int64) (bool, error) {
 	var err error
 	path := obtainDeletePath(id, version)
 	request := buildRequest(ac.Host, path, http.MethodDelete)

@@ -14,7 +14,7 @@ func responseInterpreter(content []byte) (Account.AccountData, error) {
 
 	if err != nil {
 		Instrumentation.TrackError(err.Error())
-		return Account.AccountData{}, err
+		return Account.AccountData{Error: err.Error()}, err
 	}
 
 	return realResponse.Data, nil

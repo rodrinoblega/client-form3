@@ -7,7 +7,7 @@ import (
 	Account "rnoblega/client-form3/src/dto"
 )
 
-func (ac *Client) Create(account Account.AccountData) (Account.AccountData, error) {
+func (ac *Gateway) Create(account Account.AccountData) (Account.AccountData, error) {
 	var err error
 	path := obtainCreatePath()
 	request := buildRequestWithBody(account, ac.Host, path, http.MethodPost)
@@ -21,8 +21,9 @@ func (ac *Client) Create(account Account.AccountData) (Account.AccountData, erro
 
 	content, err := ioutil.ReadAll(response.Body)
 	if response.StatusCode != 201 {
-		handleError(errors.New(string(content)))
-		return Account.AccountData{Error: err.Error()}, errors.New(string(content))
+		err = errors.New(string(content))
+		handleError(err)
+		return Account.AccountData{Error: err.Error()}, err
 	}
 
 	return responseInterpreter(content)

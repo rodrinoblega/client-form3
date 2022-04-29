@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func TestFunctionalCreate(t *testing.T) {
+func TestFunctionalCreateExistingAccount(t *testing.T) {
 
 	randomId := uuid.New()
 	app := Application.NewService("localhost:8080", 5*time.Second)
@@ -28,9 +28,12 @@ func TestFunctionalCreate(t *testing.T) {
 		},
 	}
 
-	actualCreate, _ := app.Service.Create(account)
+	accountCreated, _ := app.Service.Create(account)
+	existingAccountCreated, _ := app.Service.Create(account)
 
-	assert.Equal(t, account, actualCreate)
+	assert.Equal(t, account, accountCreated)
+	errorMsg := "{\"error_message\":\"Account cannot be created as it violates a duplicate constraint\"}"
+	assert.Equal(t, Account.AccountData{Error: errorMsg}, existingAccountCreated)
 }
 
 func TestFunctionalFetch(t *testing.T) {
@@ -58,6 +61,15 @@ func TestFunctionalFetch(t *testing.T) {
 
 	assert.Equal(t, account, actualFetch)
 	assert.NotNil(t, actualCreate)
+}
+
+func TestFunctionalDeleteNotExistingAccount(t *testing.T) {
+
+	app := Application.NewService("localhost:8080", 5*time.Second)
+
+	actualDelete, _ := app.Service.Delete("rodrigoId", 0)
+
+	assert.False(t, actualDelete)
 }
 
 func TestFunctionalDelete(t *testing.T) {

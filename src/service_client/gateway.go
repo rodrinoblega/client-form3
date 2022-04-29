@@ -6,19 +6,19 @@ import (
 	"time"
 )
 
-type Client struct {
+type Gateway struct {
 	Host   string
-	Client *http.Client
+	Client HttpClient
 }
 
-type ClientInterface interface {
+type GatewayInterface interface {
 	Create(account Account.AccountData) (Account.AccountData, error)
 	Fetch(id string) (Account.AccountData, error)
 	Delete(id string, version int64) (bool, error)
 }
 
-func NewClient(host string, timeout time.Duration) *Client {
-	return &Client{
+func NewGateway(host string, timeout time.Duration) *Gateway {
+	return &Gateway{
 		Host:   host,
 		Client: &http.Client{Timeout: timeout},
 	}

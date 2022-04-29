@@ -7,7 +7,7 @@ import (
 	Account "rnoblega/client-form3/src/dto"
 )
 
-func (ac *Client) Fetch(id string) (Account.AccountData, error) {
+func (ac *Gateway) Fetch(id string) (Account.AccountData, error) {
 	var err error
 	path := obtainFetchPath(id)
 	request := buildRequest(ac.Host, path, http.MethodGet)
