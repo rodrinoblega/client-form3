@@ -1,4 +1,4 @@
-package service_client
+package client
 
 import (
 	"io/ioutil"
@@ -25,11 +25,11 @@ type Response struct {
 	Response *http.Response
 }
 
-func (r Response) statusCode() int {
+func (r Response) StatusCode() int {
 	return r.Response.StatusCode
 }
 
-func (r Response) readBody() ([]byte, error) {
+func (r Response) ReadBody() ([]byte, error) {
 	return ioutil.ReadAll(r.Response.Body)
 }
 

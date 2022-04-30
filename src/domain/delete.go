@@ -1,11 +1,11 @@
-package service_client
+package domain
 
 import (
 	"errors"
 	"net/http"
-	ErrorHandler "rnoblega/client-form3/src/service_client/handler_error"
-	PathBuilder "rnoblega/client-form3/src/service_client/path_builder"
-	RequestBuilder "rnoblega/client-form3/src/service_client/request_builder"
+	ErrorHandler "rnoblega/client-form3/src/domain/handler_error"
+	PathBuilder "rnoblega/client-form3/src/domain/path_builder"
+	RequestBuilder "rnoblega/client-form3/src/domain/request_builder"
 
 	"strconv"
 )
@@ -22,8 +22,8 @@ func (ac *Gateway) Delete(id string, version int64) (bool, error) {
 		return false, err
 	}
 
-	if response.statusCode() != 204 {
-		err = errors.New("Invalid status code: " + string(strconv.FormatInt(int64(response.statusCode()), 10)))
+	if response.StatusCode() != 204 {
+		err = errors.New("Invalid status code: " + string(strconv.FormatInt(int64(response.StatusCode()), 10)))
 		ErrorHandler.Handle(err)
 		return false, err
 	}

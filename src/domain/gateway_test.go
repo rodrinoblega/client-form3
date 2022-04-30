@@ -1,16 +1,17 @@
-package service_client
+package domain
 
 import (
 	"errors"
 	"github.com/stretchr/testify/assert"
+	"rnoblega/client-form3/src/domain/client"
 	Account "rnoblega/client-form3/src/dto"
 	"testing"
 )
 
 type MockClient struct{}
 
-func (mc *MockClient) Execute(req Request) (Response, error) {
-	return Response{nil}, errors.New("error mocked")
+func (mc *MockClient) Execute(req client.Request) (client.Response, error) {
+	return client.Response{nil}, errors.New("error mocked")
 }
 
 func TestFetchExecuteMethodWith(t *testing.T) {

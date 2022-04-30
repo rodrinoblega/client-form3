@@ -1,13 +1,14 @@
-package service_client
+package domain
 
 import (
+	"rnoblega/client-form3/src/domain/client"
 	Account "rnoblega/client-form3/src/dto"
 	"time"
 )
 
 type Gateway struct {
 	Host   string
-	Client ClientInterface
+	Client client.ClientInterface
 }
 
 type GatewayInterface interface {
@@ -19,6 +20,6 @@ type GatewayInterface interface {
 func NewGateway(host string, timeout time.Duration) *Gateway {
 	return &Gateway{
 		Host:   host,
-		Client: NewClient(timeout),
+		Client: client.NewClient(timeout),
 	}
 }

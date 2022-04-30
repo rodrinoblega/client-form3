@@ -1,13 +1,13 @@
-package service_client
+package domain
 
 import (
 	"errors"
 	"net/http"
+	ErrorHandler "rnoblega/client-form3/src/domain/handler_error"
+	PathBuilder "rnoblega/client-form3/src/domain/path_builder"
+	RequestBuilder "rnoblega/client-form3/src/domain/request_builder"
+	ResponseInterpreter "rnoblega/client-form3/src/domain/response_interpreter"
 	Account "rnoblega/client-form3/src/dto"
-	ErrorHandler "rnoblega/client-form3/src/service_client/handler_error"
-	PathBuilder "rnoblega/client-form3/src/service_client/path_builder"
-	RequestBuilder "rnoblega/client-form3/src/service_client/request_builder"
-	ResponseInterpreter "rnoblega/client-form3/src/service_client/response_interpreter"
 )
 
 func (ac *Gateway) Create(account Account.AccountData) (Account.AccountData, error) {
@@ -22,9 +22,9 @@ func (ac *Gateway) Create(account Account.AccountData) (Account.AccountData, err
 		return Account.AccountData{Error: err.Error()}, err
 	}
 
-	content, err := response.readBody()
+	content, err := response.ReadBody()
 
-	if response.statusCode() != 201 {
+	if response.StatusCode() != 201 {
 		err = errors.New(string(content))
 		ErrorHandler.Handle(err)
 		return Account.AccountData{Error: err.Error()}, err
