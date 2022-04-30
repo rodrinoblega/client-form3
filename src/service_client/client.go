@@ -34,20 +34,12 @@ func (r Response) readBody() ([]byte, error) {
 }
 
 func (c *Client) Execute(req Request) (Response, error) {
-	var err error
-	asd := c.HttpClientInterface
-	response, _ := asd.Do(req.Request)
-
-	if err != nil {
-		handleError(err)
-		return Response{}, err
-	}
-
+	response, err := c.HttpClientInterface.Do(req.Request)
 	return Response{response}, err
 }
 
-func NewClient(timeout int64) *Client {
+func NewClient(timeout time.Duration) *Client {
 	return &Client{
-		HttpClientInterface: &http.Client{Timeout: time.Duration(timeout)},
+		HttpClientInterface: &http.Client{Timeout: timeout},
 	}
 }

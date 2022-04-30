@@ -6,12 +6,13 @@ import (
 	Application "rnoblega/client-form3/src"
 	Account "rnoblega/client-form3/src/dto"
 	"testing"
+	"time"
 )
 
 func TestFunctionalCreateExistingAccount(t *testing.T) {
 
 	randomId := uuid.New()
-	app := Application.NewService("localhost:8080", 4)
+	app := Application.NewService("localhost:8080", 4*time.Second)
 
 	account := Account.AccountData{
 		ID:             randomId.String(),
@@ -38,7 +39,7 @@ func TestFunctionalCreateExistingAccount(t *testing.T) {
 func TestFunctionalFetch(t *testing.T) {
 
 	randomId := uuid.New()
-	app := Application.NewService("localhost:8080", 5)
+	app := Application.NewService("localhost:8080", 4*time.Second)
 
 	account := Account.AccountData{
 		ID:             randomId.String(),
@@ -64,7 +65,7 @@ func TestFunctionalFetch(t *testing.T) {
 
 func TestFunctionalDeleteNotExistingAccount(t *testing.T) {
 
-	app := Application.NewService("localhost:8080", 5)
+	app := Application.NewService("localhost:8080", 4*time.Second)
 
 	actualDelete, _ := app.Service.Delete("rodrigoId", 0)
 
@@ -74,7 +75,7 @@ func TestFunctionalDeleteNotExistingAccount(t *testing.T) {
 func TestFunctionalDelete(t *testing.T) {
 
 	randomId := uuid.New()
-	app := Application.NewService("localhost:8080", 5)
+	app := Application.NewService("localhost:8080", 4*time.Second)
 
 	account := Account.AccountData{
 		ID:             randomId.String(),
