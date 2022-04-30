@@ -1,4 +1,4 @@
-package service_client
+package response_interpreter
 
 import (
 	"github.com/stretchr/testify/assert"
@@ -7,7 +7,7 @@ import (
 )
 
 func TestUnmarshalError(t *testing.T) {
-	accountData, err := responseInterpreter(nil)
+	accountData, err := Interpreter(nil)
 
 	assert.Equal(t, Account.AccountData{Error: "unexpected end of JSON input"}, accountData)
 	assert.Equal(t, "unexpected end of JSON input", err.Error())

@@ -4,17 +4,21 @@ import (
 	"errors"
 	"net/http"
 	Account "rnoblega/client-form3/src/dto"
+	ErrorHandler "rnoblega/client-form3/src/service_client/handler_error"
+	PathBuilder "rnoblega/client-form3/src/service_client/path_builder"
+	RequestBuilder "rnoblega/client-form3/src/service_client/request_builder"
+	ResponseInterpreter "rnoblega/client-form3/src/service_client/response_interpreter"
 )
 
 func (ac *Gateway) Create(account Account.AccountData) (Account.AccountData, error) {
 	var err error
-	path := obtainCreatePath()
-	request := buildRequestWithBody(account, ac.Host, path, http.MethodPost)
+	path := PathBuilder.ObtainCreatePath()
+	request := RequestBuilder.BuildRequestWithBody(account, ac.Host, path, http.MethodPost)
 
 	response, err := ac.Client.Execute(request)
 
 	if err != nil {
-		handleError(err)
+		ErrorHandler.Handle(err)
 		return Account.AccountData{Error: err.Error()}, err
 	}
 
@@ -22,9 +26,9 @@ func (ac *Gateway) Create(account Account.AccountData) (Account.AccountData, err
 
 	if response.statusCode() != 201 {
 		err = errors.New(string(content))
-		handleError(err)
+		ErrorHandler.Handle(err)
 		return Account.AccountData{Error: err.Error()}, err
 	}
 
-	return responseInterpreter(content)
+	return ResponseInterpreter.Interpreter(content)
 }
