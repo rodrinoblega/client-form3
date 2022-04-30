@@ -1,18 +1,18 @@
-package service_client
+package path_builder
 
 import (
 	Configuration "rnoblega/client-form3/src/configuration"
 	"strconv"
 )
 
-func obtainFetchPath(id string) string {
+func ObtainFetchPath(id string) string {
 	return Configuration.URI + "/" + id
 }
 
-func obtainCreatePath() string {
+func ObtainCreatePath() string {
 	return Configuration.URI
 }
 
-func obtainDeletePath(id string, version int64) string {
+func ObtainDeletePath(id string, version int64) string {
 	return Configuration.URI + "/" + id + "?version=" + strconv.FormatInt(version, 10)
 }

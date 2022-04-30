@@ -9,8 +9,8 @@ type Application struct {
 	Service Service.GatewayInterface
 }
 
-func NewService(host string, timeout time.Duration) *Application {
+func NewService(host string, time time.Duration) *Application {
 	return &Application{
-		Service: Service.NewGateway(host, timeout),
+		Service: Service.NewGateway(host, time),
 	}
 }

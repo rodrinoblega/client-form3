@@ -1,9 +1,9 @@
-package service_client
+package handler_error
 
 import (
 	Instrumentation "rnoblega/client-form3/src/configuration"
 )
 
-func handleError(err error) {
+func Handle(err error) {
 	Instrumentation.TrackError(err.Error())
 }

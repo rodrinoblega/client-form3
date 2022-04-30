@@ -1,14 +1,13 @@
 package service_client
 
 import (
-	"net/http"
 	Account "rnoblega/client-form3/src/dto"
 	"time"
 )
 
 type Gateway struct {
 	Host   string
-	Client HttpClient
+	Client ClientInterface
 }
 
 type GatewayInterface interface {
@@ -20,6 +19,6 @@ type GatewayInterface interface {
 func NewGateway(host string, timeout time.Duration) *Gateway {
 	return &Gateway{
 		Host:   host,
-		Client: &http.Client{Timeout: timeout},
+		Client: NewClient(timeout),
 	}
 }

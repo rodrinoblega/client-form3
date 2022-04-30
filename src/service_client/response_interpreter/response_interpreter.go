@@ -1,4 +1,4 @@
-package service_client
+package response_interpreter
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	Account "rnoblega/client-form3/src/dto"
 )
 
-func responseInterpreter(content []byte) (Account.AccountData, error) {
+func Interpreter(content []byte) (Account.AccountData, error) {
 	var err error
 	realResponse := &Account.Data{}
 
