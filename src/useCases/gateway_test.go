@@ -1,17 +1,17 @@
-package domain
+package useCases
 
 import (
 	"errors"
 	"github.com/stretchr/testify/assert"
-	"rnoblega/client-form3/src/domain/client"
-	Account "rnoblega/client-form3/src/dto"
+	Account "rnoblega/client-form3/src/entities"
+	"rnoblega/client-form3/src/frameworks"
 	"testing"
 )
 
 type MockClient struct{}
 
-func (mc *MockClient) Execute(req client.Request) (client.Response, error) {
-	return client.Response{nil}, errors.New("error mocked")
+func (mc *MockClient) Execute(req frameworks.Request) (frameworks.Response, error) {
+	return frameworks.Response{nil}, errors.New("error mocked")
 }
 
 func TestFetchExecuteMethodWith(t *testing.T) {

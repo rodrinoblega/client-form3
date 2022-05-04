@@ -1,4 +1,4 @@
-package dto
+package entities
 
 type Data struct {
 	Data AccountData `json:"data"`

@@ -2,7 +2,7 @@ package response_interpreter
 
 import (
 	"github.com/stretchr/testify/assert"
-	Account "rnoblega/client-form3/src/dto"
+	Account "rnoblega/client-form3/src/entities"
 	"testing"
 )
 

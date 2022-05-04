@@ -1,14 +1,10 @@
-package client
+package frameworks
 
 import (
 	"io/ioutil"
 	"net/http"
 	"time"
 )
-
-type ClientInterface interface {
-	Execute(req Request) (Response, error)
-}
 
 type Client struct {
 	HttpClientInterface *http.Client

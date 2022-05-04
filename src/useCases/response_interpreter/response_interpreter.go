@@ -3,7 +3,7 @@ package response_interpreter
 import (
 	"encoding/json"
 	Instrumentation "rnoblega/client-form3/src/configuration"
-	Account "rnoblega/client-form3/src/dto"
+	Account "rnoblega/client-form3/src/entities"
 )
 
 func Interpreter(content []byte) (Account.AccountData, error) {

@@ -6,8 +6,8 @@ import (
 	"net/http"
 	Configuration "rnoblega/client-form3/src/configuration"
 	Instrumentation "rnoblega/client-form3/src/configuration"
-	Client "rnoblega/client-form3/src/domain/client"
-	Account "rnoblega/client-form3/src/dto"
+	Account "rnoblega/client-form3/src/entities"
+	Client "rnoblega/client-form3/src/frameworks"
 )
 
 func BuildRequestWithBody(account Account.AccountData, host string, path string, method string) Client.Request {

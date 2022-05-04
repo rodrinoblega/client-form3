@@ -1,7 +1,7 @@
 package application
 
 import (
-	Service "rnoblega/client-form3/src/domain"
+	Service "rnoblega/client-form3/src/adapters/gateway"
 	"time"
 )
 
