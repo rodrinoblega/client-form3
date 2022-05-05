@@ -3,8 +3,8 @@ package useCases
 import (
 	"errors"
 	"github.com/stretchr/testify/assert"
-	Account "rnoblega/client-form3/src/entities"
 	"rnoblega/client-form3/src/frameworks"
+	Account "rnoblega/client-form3/src/useCases/inputoutput"
 	"testing"
 )
 

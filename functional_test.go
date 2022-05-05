@@ -4,7 +4,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	Application "rnoblega/client-form3/src"
-	Account "rnoblega/client-form3/src/entities"
+	Account "rnoblega/client-form3/src/useCases/inputoutput"
 	"testing"
 	"time"
 )

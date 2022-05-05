@@ -1,4 +1,4 @@
-package entities
+package inputoutput
 
 type Data struct {
 	Data AccountData `json:"data"`

@@ -3,8 +3,8 @@ package useCases
 import (
 	"errors"
 	"net/http"
-	Account "rnoblega/client-form3/src/entities"
 	ErrorHandler "rnoblega/client-form3/src/useCases/handler_error"
+	Account "rnoblega/client-form3/src/useCases/inputoutput"
 	PathBuilder "rnoblega/client-form3/src/useCases/path_builder"
 	RequestBuilder "rnoblega/client-form3/src/useCases/request_builder"
 	ResponseInterpreter "rnoblega/client-form3/src/useCases/response_interpreter"

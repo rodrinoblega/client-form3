@@ -1,9 +1,9 @@
 package gateway
 
 import (
-	Account "rnoblega/client-form3/src/entities"
 	"rnoblega/client-form3/src/frameworks"
 	UseCases "rnoblega/client-form3/src/useCases"
+	Account "rnoblega/client-form3/src/useCases/inputoutput"
 	"time"
 )
 
