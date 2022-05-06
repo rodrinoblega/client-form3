@@ -2,6 +2,7 @@ package useCases
 
 import (
 	"encoding/json"
+	"github.com/rodrinoblega/client-form3/src/configuration"
 )
 
 func Interpreter(content []byte) (AccountData, error) {
@@ -11,7 +12,7 @@ func Interpreter(content []byte) (AccountData, error) {
 	err = json.Unmarshal(content, realResponse)
 
 	if err != nil {
-		TrackError(err.Error())
+		configuration.TrackError(err.Error())
 		return AccountData{Error: err.Error()}, err
 	}
 
