@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"github.com/rodrinoblega/client-form3/src/frameworks"
-	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
@@ -14,11 +13,11 @@ import (
 type MockClientFetch struct{}
 
 func (mc *MockClientFetch) Execute(req frameworks.Request) (frameworks.Response, error) {
-	account := Account.AccountData{
+	account := AccountData{
 		ID:             "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
 		OrganisationID: "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
 		Type:           "accounts",
-		Attributes: &Account.AccountAttributes{
+		Attributes: &AccountAttributes{
 			Country:      "AR",
 			BaseCurrency: "ARS",
 			BankID:       "400301",
@@ -28,7 +27,7 @@ func (mc *MockClientFetch) Execute(req frameworks.Request) (frameworks.Response,
 		},
 	}
 
-	bodyPointer := &Account.Data{Data: account}
+	bodyPointer := &Data{Data: account}
 	body, _ := json.Marshal(bodyPointer)
 
 	return frameworks.Response{&http.Response{StatusCode: 200, Body: ioutil.NopCloser(bytes.NewBuffer(body))}}, nil

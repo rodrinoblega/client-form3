@@ -1,4 +1,4 @@
-package path_builder
+package useCases
 
 import (
 	Configuration "github.com/rodrinoblega/client-form3/src/configuration"

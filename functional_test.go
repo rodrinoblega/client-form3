@@ -3,7 +3,7 @@ package client_form3
 import (
 	"fmt"
 	"github.com/google/uuid"
-	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
+	Account "github.com/rodrinoblega/client-form3/src/useCases"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"

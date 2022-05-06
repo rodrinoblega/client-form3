@@ -1,4 +1,4 @@
-package output
+package useCases
 
 type Data struct {
 	Data AccountData `json:"data"`
