@@ -2,7 +2,7 @@ package service
 
 import (
 	Service "github.com/rodrinoblega/client-form3/src/adapters/gateway"
-	UseCases "github.com/rodrinoblega/client-form3/src/useCases"
+	UseCases "github.com/rodrinoblega/client-form3/src/useCases/gateway"
 	"time"
 )
 

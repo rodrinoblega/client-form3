@@ -1,7 +1,8 @@
-package useCases
+package gateway
 
 import (
 	"errors"
+	"github.com/rodrinoblega/client-form3/src/configuration"
 	"github.com/rodrinoblega/client-form3/src/useCases/pathBuilder"
 	"github.com/rodrinoblega/client-form3/src/useCases/requestBuilder"
 	"net/http"
@@ -17,13 +18,13 @@ func (g *Gateway) Delete(id string, version int64) (bool, error) {
 	response, err := g.Client.Execute(request)
 
 	if err != nil {
-		trackError(err)
+		configuration.TrackError(err)
 		return false, err
 	}
 
 	if response.StatusCode() != 204 {
 		err = errors.New("Invalid status code: " + string(strconv.FormatInt(int64(response.StatusCode()), 10)))
-		trackError(err)
+		configuration.TrackError(err)
 		return false, err
 	}
 

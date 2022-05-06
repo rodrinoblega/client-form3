@@ -1,4 +1,4 @@
-package useCases
+package gateway
 
 import (
 	"bytes"

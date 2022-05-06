@@ -1,7 +1,8 @@
-package useCases
+package gateway
 
 import (
 	"errors"
+	"github.com/rodrinoblega/client-form3/src/configuration"
 	"github.com/rodrinoblega/client-form3/src/useCases/output"
 	"github.com/rodrinoblega/client-form3/src/useCases/pathBuilder"
 	"github.com/rodrinoblega/client-form3/src/useCases/requestBuilder"
@@ -17,7 +18,7 @@ func (g *Gateway) Create(account output.AccountData) (output.AccountData, error)
 	response, err := g.Client.Execute(request)
 
 	if err != nil {
-		trackError(err)
+		configuration.TrackError(err)
 		return output.AccountData{Error: err.Error()}, err
 	}
 
@@ -25,7 +26,7 @@ func (g *Gateway) Create(account output.AccountData) (output.AccountData, error)
 
 	if response.StatusCode() != 201 {
 		err = errors.New(string(content))
-		trackError(err)
+		configuration.TrackError(err)
 		return output.AccountData{Error: err.Error()}, err
 	}
 

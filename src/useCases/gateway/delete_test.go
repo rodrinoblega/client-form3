@@ -1,4 +1,4 @@
-package useCases
+package gateway
 
 import (
 	"github.com/rodrinoblega/client-form3/src/frameworks"
