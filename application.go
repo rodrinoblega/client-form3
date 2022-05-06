@@ -1,4 +1,4 @@
-package application
+package client_form3
 
 import (
 	Gateway "github.com/rodrinoblega/client-form3/src/adapters/gateway"

@@ -1,21 +1,31 @@
 package useCases
 
 import (
+	"bytes"
 	"errors"
 	"github.com/rodrinoblega/client-form3/src/frameworks"
 	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
 	"github.com/stretchr/testify/assert"
+	"io/ioutil"
+	"net/http"
 	"testing"
 )
 
-type MockClient struct{}
+type MockClientWithError struct{}
 
-func (mc *MockClient) Execute(req frameworks.Request) (frameworks.Response, error) {
+type MockClientBadRequest struct{}
+
+func (mc *MockClientWithError) Execute(req frameworks.Request) (frameworks.Response, error) {
 	return frameworks.Response{nil}, errors.New("error mocked")
 }
 
+func (mc *MockClientBadRequest) Execute(req frameworks.Request) (frameworks.Response, error) {
+	body := "Bad request"
+	return frameworks.Response{&http.Response{StatusCode: 400, Body: ioutil.NopCloser(bytes.NewBufferString(body))}}, nil
+}
+
 func TestFetchExecuteMethodWith(t *testing.T) {
-	gateway := Gateway{Client: &MockClient{}}
+	gateway := Gateway{Client: &MockClientWithError{}}
 	account, err := gateway.Fetch("fakeId")
 
 	assert.Equal(t, errors.New("error mocked"), err)
@@ -23,7 +33,7 @@ func TestFetchExecuteMethodWith(t *testing.T) {
 }
 
 func TestDeleteExecuteMethodWith(t *testing.T) {
-	gateway := Gateway{Client: &MockClient{}}
+	gateway := Gateway{Client: &MockClientWithError{}}
 	bool, err := gateway.Delete("fakeId", 0)
 
 	assert.Equal(t, errors.New("error mocked"), err)
@@ -31,7 +41,7 @@ func TestDeleteExecuteMethodWith(t *testing.T) {
 }
 
 func TestCreateExecuteMethodWith(t *testing.T) {
-	gateway := Gateway{Client: &MockClient{}}
+	gateway := Gateway{Client: &MockClientWithError{}}
 	account, err := gateway.Create(Account.AccountData{})
 
 	assert.Equal(t, errors.New("error mocked"), err)

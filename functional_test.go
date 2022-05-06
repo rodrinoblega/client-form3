@@ -1,17 +1,26 @@
-package application
+package client_form3
 
 import (
+	"fmt"
 	"github.com/google/uuid"
 	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
 	"github.com/stretchr/testify/assert"
+	"os"
 	"testing"
 	"time"
 )
 
 func TestFunctionalCreateExistingAccount(t *testing.T) {
 
+	url := os.Getenv("BASE_URL")
+
+	if url == "" {
+		url = "localhost:8080"
+	}
+
+	fmt.Println(url)
 	randomId := uuid.New()
-	app := NewService("localhost:8080", 4*time.Second)
+	app := NewService(url, 4*time.Second)
 
 	account := Account.AccountData{
 		ID:             randomId.String(),
@@ -36,9 +45,14 @@ func TestFunctionalCreateExistingAccount(t *testing.T) {
 }
 
 func TestFunctionalFetch(t *testing.T) {
+	url := os.Getenv("BASE_URL")
+
+	if url == "" {
+		url = "localhost:8080"
+	}
 
 	randomId := uuid.New()
-	app := NewService("localhost:8080", 4*time.Second)
+	app := NewService(url, 4*time.Second)
 
 	account := Account.AccountData{
 		ID:             randomId.String(),
@@ -63,8 +77,13 @@ func TestFunctionalFetch(t *testing.T) {
 }
 
 func TestFunctionalDeleteNotExistingAccount(t *testing.T) {
+	url := os.Getenv("BASE_URL")
 
-	app := NewService("localhost:8080", 4*time.Second)
+	if url == "" {
+		url = "localhost:8080"
+	}
+
+	app := NewService(url, 4*time.Second)
 
 	actualDelete, _ := app.Service.Delete("rodrigoId", 0)
 
@@ -72,9 +91,14 @@ func TestFunctionalDeleteNotExistingAccount(t *testing.T) {
 }
 
 func TestFunctionalDelete(t *testing.T) {
+	url := os.Getenv("BASE_URL")
+
+	if url == "" {
+		url = "localhost:8080"
+	}
 
 	randomId := uuid.New()
-	app := NewService("localhost:8080", 4*time.Second)
+	app := NewService(url, 4*time.Second)
 
 	account := Account.AccountData{
 		ID:             randomId.String(),
