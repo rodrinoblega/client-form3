@@ -2,7 +2,7 @@ package application
 
 import (
 	"github.com/google/uuid"
-	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
 	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"

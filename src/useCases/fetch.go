@@ -3,7 +3,7 @@ package useCases
 import (
 	"errors"
 	ErrorHandler "github.com/rodrinoblega/client-form3/src/useCases/handler_error"
-	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
 	PathBuilder "github.com/rodrinoblega/client-form3/src/useCases/path_builder"
 	RequestBuilder "github.com/rodrinoblega/client-form3/src/useCases/request_builder"
 	ResponseInterpreter "github.com/rodrinoblega/client-form3/src/useCases/response_interpreter"

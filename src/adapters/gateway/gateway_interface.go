@@ -3,7 +3,7 @@ package gateway
 import (
 	"github.com/rodrinoblega/client-form3/src/frameworks"
 	UseCases "github.com/rodrinoblega/client-form3/src/useCases"
-	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
 	"time"
 )
 

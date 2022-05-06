@@ -1,4 +1,4 @@
-package inputoutput
+package output
 
 type Data struct {
 	Data AccountData `json:"data"`

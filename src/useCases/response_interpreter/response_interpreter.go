@@ -3,7 +3,7 @@ package response_interpreter
 import (
 	"encoding/json"
 	Instrumentation "github.com/rodrinoblega/client-form3/src/configuration"
-	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
 )
 
 func Interpreter(content []byte) (Account.AccountData, error) {

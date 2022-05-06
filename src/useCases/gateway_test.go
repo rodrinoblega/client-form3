@@ -3,7 +3,7 @@ package useCases
 import (
 	"errors"
 	"github.com/rodrinoblega/client-form3/src/frameworks"
-	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

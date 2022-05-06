@@ -6,7 +6,7 @@ import (
 	Configuration "github.com/rodrinoblega/client-form3/src/configuration"
 	Instrumentation "github.com/rodrinoblega/client-form3/src/configuration"
 	Client "github.com/rodrinoblega/client-form3/src/frameworks"
-	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/output"
 	"net/http"
 )
 
