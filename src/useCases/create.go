@@ -13,7 +13,7 @@ func (g *Gateway) Create(account AccountData) (AccountData, error) {
 	response, err := g.Client.Execute(request)
 
 	if err != nil {
-		Handle(err)
+		handle(err)
 		return AccountData{Error: err.Error()}, err
 	}
 
@@ -21,7 +21,7 @@ func (g *Gateway) Create(account AccountData) (AccountData, error) {
 
 	if response.StatusCode() != 201 {
 		err = errors.New(string(content))
-		Handle(err)
+		handle(err)
 		return AccountData{Error: err.Error()}, err
 	}
 

@@ -15,13 +15,13 @@ func (g *Gateway) Delete(id string, version int64) (bool, error) {
 	response, err := g.Client.Execute(request)
 
 	if err != nil {
-		Handle(err)
+		handle(err)
 		return false, err
 	}
 
 	if response.StatusCode() != 204 {
 		err = errors.New("Invalid status code: " + string(strconv.FormatInt(int64(response.StatusCode()), 10)))
-		Handle(err)
+		handle(err)
 		return false, err
 	}
 
