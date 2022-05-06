@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"github.com/rodrinoblega/client-form3/src/frameworks"
+	"github.com/rodrinoblega/client-form3/src/useCases/output"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
@@ -13,11 +14,11 @@ import (
 type MockClientCreate struct{}
 
 func (mc *MockClientCreate) Execute(req frameworks.Request) (frameworks.Response, error) {
-	account := AccountData{
+	account := output.AccountData{
 		ID:             "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
 		OrganisationID: "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
 		Type:           "accounts",
-		Attributes: &AccountAttributes{
+		Attributes: &output.AccountAttributes{
 			Country:      "AR",
 			BaseCurrency: "ARS",
 			BankID:       "400301",
@@ -27,18 +28,18 @@ func (mc *MockClientCreate) Execute(req frameworks.Request) (frameworks.Response
 		},
 	}
 
-	bodyPointer := &Data{Data: account}
+	bodyPointer := &output.Data{Data: account}
 	body, _ := json.Marshal(bodyPointer)
 
 	return frameworks.Response{&http.Response{StatusCode: 201, Body: ioutil.NopCloser(bytes.NewBuffer(body))}}, nil
 }
 
 func TestCreateWithoutError(t *testing.T) {
-	account := AccountData{
+	account := output.AccountData{
 		ID:             "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
 		OrganisationID: "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
 		Type:           "accounts",
-		Attributes: &AccountAttributes{
+		Attributes: &output.AccountAttributes{
 			Country:      "AR",
 			BaseCurrency: "ARS",
 			BankID:       "400301",
@@ -55,11 +56,11 @@ func TestCreateWithoutError(t *testing.T) {
 }
 
 func TestFetchStatusCodeNotEqual201(t *testing.T) {
-	account := AccountData{
+	account := output.AccountData{
 		ID:             "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
 		OrganisationID: "eb0bd6f5-c3f5-44b2-b677-acd23cdde73c",
 		Type:           "accounts",
-		Attributes: &AccountAttributes{
+		Attributes: &output.AccountAttributes{
 			Country:      "AR",
 			BaseCurrency: "ARS",
 			BankID:       "400301",

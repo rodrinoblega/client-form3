@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"errors"
 	"github.com/rodrinoblega/client-form3/src/frameworks"
+	"github.com/rodrinoblega/client-form3/src/useCases/output"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
@@ -28,7 +29,7 @@ func TestFetchExecuteMethodWith(t *testing.T) {
 	account, err := gateway.Fetch("fakeId")
 
 	assert.Equal(t, errors.New("error mocked"), err)
-	assert.Equal(t, AccountData{Error: "error mocked"}, account)
+	assert.Equal(t, output.AccountData{Error: "error mocked"}, account)
 }
 
 func TestDeleteExecuteMethodWith(t *testing.T) {
@@ -41,8 +42,8 @@ func TestDeleteExecuteMethodWith(t *testing.T) {
 
 func TestCreateExecuteMethodWith(t *testing.T) {
 	gateway := Gateway{Client: &MockClientWithError{}}
-	account, err := gateway.Create(AccountData{})
+	account, err := gateway.Create(output.AccountData{})
 
 	assert.Equal(t, errors.New("error mocked"), err)
-	assert.Equal(t, AccountData{Error: "error mocked"}, account)
+	assert.Equal(t, output.AccountData{Error: "error mocked"}, account)
 }

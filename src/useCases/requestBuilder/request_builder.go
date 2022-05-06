@@ -1,16 +1,17 @@
-package useCases
+package requestBuilder
 
 import (
 	"bytes"
 	"encoding/json"
 	Configuration "github.com/rodrinoblega/client-form3/src/configuration"
 	Client "github.com/rodrinoblega/client-form3/src/frameworks"
+	"github.com/rodrinoblega/client-form3/src/useCases/output"
 	"log"
 	"net/http"
 )
 
-func BuildRequestWithBody(account AccountData, host string, path string, method string) Client.Request {
-	bodyPointer := &Data{Data: account}
+func BuildRequestWithBody(account output.AccountData, host string, path string, method string) Client.Request {
+	bodyPointer := &output.Data{Data: account}
 	body, _ := json.Marshal(bodyPointer)
 
 	url := Configuration.PROTOCOL + host + "/" + path

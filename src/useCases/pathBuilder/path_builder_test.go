@@ -1,4 +1,4 @@
-package useCases
+package pathBuilder
 
 import (
 	"github.com/stretchr/testify/assert"

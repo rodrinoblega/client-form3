@@ -3,12 +3,13 @@ package gateway
 import (
 	"github.com/rodrinoblega/client-form3/src/frameworks"
 	UseCases "github.com/rodrinoblega/client-form3/src/useCases"
+	"github.com/rodrinoblega/client-form3/src/useCases/output"
 	"time"
 )
 
 type GatewayInterface interface {
-	Create(account UseCases.AccountData) (UseCases.AccountData, error)
-	Fetch(id string) (UseCases.AccountData, error)
+	Create(account output.AccountData) (output.AccountData, error)
+	Fetch(id string) (output.AccountData, error)
 	Delete(id string, version int64) (bool, error)
 }
 
