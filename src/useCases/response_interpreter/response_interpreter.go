@@ -2,8 +2,8 @@ package response_interpreter
 
 import (
 	"encoding/json"
-	Instrumentation "rnoblega/client-form3/src/configuration"
-	Account "rnoblega/client-form3/src/useCases/inputoutput"
+	Instrumentation "github.com/rodrinoblega/client-form3/src/configuration"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
 )
 
 func Interpreter(content []byte) (Account.AccountData, error) {

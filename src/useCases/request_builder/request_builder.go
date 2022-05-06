@@ -3,11 +3,11 @@ package request_builder
 import (
 	"bytes"
 	"encoding/json"
+	Configuration "github.com/rodrinoblega/client-form3/src/configuration"
+	Instrumentation "github.com/rodrinoblega/client-form3/src/configuration"
+	Client "github.com/rodrinoblega/client-form3/src/frameworks"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
 	"net/http"
-	Configuration "rnoblega/client-form3/src/configuration"
-	Instrumentation "rnoblega/client-form3/src/configuration"
-	Client "rnoblega/client-form3/src/frameworks"
-	Account "rnoblega/client-form3/src/useCases/inputoutput"
 )
 
 func BuildRequestWithBody(account Account.AccountData, host string, path string, method string) Client.Request {

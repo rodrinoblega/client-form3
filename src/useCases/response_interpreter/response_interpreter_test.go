@@ -1,8 +1,8 @@
 package response_interpreter
 
 import (
+	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
 	"github.com/stretchr/testify/assert"
-	Account "rnoblega/client-form3/src/useCases/inputoutput"
 	"testing"
 )
 

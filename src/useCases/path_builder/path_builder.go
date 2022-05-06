@@ -1,7 +1,7 @@
 package path_builder
 
 import (
-	Configuration "rnoblega/client-form3/src/configuration"
+	Configuration "github.com/rodrinoblega/client-form3/src/configuration"
 	"strconv"
 )
 

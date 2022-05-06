@@ -1,4 +1,4 @@
-module rnoblega/client-form3
+module github.com/rodrinoblega/client-form3
 
 go 1.18
 

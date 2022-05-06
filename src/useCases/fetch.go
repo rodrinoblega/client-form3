@@ -2,12 +2,12 @@ package useCases
 
 import (
 	"errors"
+	ErrorHandler "github.com/rodrinoblega/client-form3/src/useCases/handler_error"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
+	PathBuilder "github.com/rodrinoblega/client-form3/src/useCases/path_builder"
+	RequestBuilder "github.com/rodrinoblega/client-form3/src/useCases/request_builder"
+	ResponseInterpreter "github.com/rodrinoblega/client-form3/src/useCases/response_interpreter"
 	"net/http"
-	ErrorHandler "rnoblega/client-form3/src/useCases/handler_error"
-	Account "rnoblega/client-form3/src/useCases/inputoutput"
-	PathBuilder "rnoblega/client-form3/src/useCases/path_builder"
-	RequestBuilder "rnoblega/client-form3/src/useCases/request_builder"
-	ResponseInterpreter "rnoblega/client-form3/src/useCases/response_interpreter"
 )
 
 func (g *Gateway) Fetch(id string) (Account.AccountData, error) {

@@ -2,8 +2,8 @@ package application
 
 import (
 	"github.com/google/uuid"
+	Account "github.com/rodrinoblega/client-form3/src/useCases/inputoutput"
 	"github.com/stretchr/testify/assert"
-	Account "rnoblega/client-form3/src/useCases/inputoutput"
 	"testing"
 	"time"
 )
