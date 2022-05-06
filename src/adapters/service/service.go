@@ -1,8 +1,8 @@
 package service
 
 import (
-	Service "rnoblega/client-form3/src/adapters/gateway"
-	UseCases "rnoblega/client-form3/src/useCases"
+	Service "github.com/rodrinoblega/client-form3/src/adapters/gateway"
+	UseCases "github.com/rodrinoblega/client-form3/src/useCases"
 	"time"
 )
 
