@@ -23,7 +23,9 @@ Project structure diagram:
 ![](static/ProjectStructureDiagram.jpeg)
 
 ```
-Note: We have an Instrumentation class that handles errors. Nowadays we only log the error. If we want to add, for example, a tracking tool in order to register errors, we can do it here without modifying any code.
+Note: We have an Instrumentation class that handles errors. Nowadays we only log the error. 
+If we want to add, for example, a tracking tool in order to register errors, 
+we can do it here without modifying any code.
 ```
 
 
