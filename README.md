@@ -9,7 +9,8 @@ Note: Exercise done with no previous knowledge of Golang
 
 ## Objective
 
-Client library in Go to access our fake account API with `Create`, `Fetch`, and `Delete` operations
+Client library in Go to access a fake account API with `Create`, `Fetch`, and `Delete` operations
+
 
 ## Project structure
 
@@ -21,7 +22,9 @@ Project structure diagram:
 
 ![](static/ProjectStructureDiagram.jpeg)
 
-```Note: We have an Instrumentation class that handles errors. Nowadays we only log the error. If we want to add, for example, a track tool in order to register errors, we can do it here withou modifying any code.```
+```
+Note: We have an Instrumentation class that handles errors. Nowadays we only log the error. If we want to add, for example, a tracking tool in order to register errors, we can do it here without modifying any code.
+```
 
 
 ## Using the client
@@ -35,4 +38,29 @@ In order to use de client you should:
 - Example:
 
 ![](static/UsingTheClient.png)
+
+
+## Test
+
+There are unit tests and a functional test (`functional_test.go`) that test the entire flow of the application
+
+We have 100% of code coverage:
+![](static/CodeCoverage.png)
+
+To run the test locally, you should run:
+
+`docker compose up` to be able to access the account api
+
+`go test -v -coverpkg ./... ./... -coverprofile cover.out` to run all the application's test
+
+`go tool cover -html=cover.out` to see the code coverage report
+
+```
+NOTE: When you run docker compose up, all the application's tests are executed
+```
+
+
+## Questions
+
+* [rnoblega@gmail.com](rnoblega@gmail.com)
 
