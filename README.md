@@ -14,7 +14,7 @@ Client library in Go to access a fake account API with `Create`, `Fetch`, and `D
 
 ## Project structure
 
-This project was structured based on the concept of [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) and following The dependency rule that says that source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle.
+This project was structured based on the concept of [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) and following "The Dependency Rule" that says that source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle.
 
 The implementation of this code was made using TDD (Test driven development), clean code and simple design.
 
@@ -37,7 +37,7 @@ we can do it here without modifying any code.
 
 ## Using the client
 
-In order to use de client you should:
+In order to use the client you should:
 
 - Execute `go get github.com/rodrinoblega/client-form3` to download de go module
 - Import `github.com/rodrinoblega/client-form` and generate a new service with an URL and a timeout
@@ -62,14 +62,14 @@ We can find a 100% of code coverage:
 
 To run the test locally, you should run:
 
-`docker compose up` to be able to access the account api
+`docker-compose up` to be able to access the account api
 
 `go test -v -coverpkg ./... ./... -coverprofile cover.out` to run all the application's test
 
 `go tool cover -html=cover.out` to see the code coverage report
 
 ```
-NOTE: When you run docker compose up, all the application's tests are executed
+NOTE: When you run docker-compose up, all the application's tests are executed
 ```
 
 
