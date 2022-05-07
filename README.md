@@ -23,7 +23,13 @@ Project structure diagram:
 ![](static/ProjectStructureDiagram.jpeg)
 
 ```
-Note: We have an Instrumentation class that handles errors. Nowadays we only log the error. 
+Note: We abstracted the implementation of the HTTP client into a struct Client in the framework layer. 
+We did this because, if in the future we want to change the implementation, 
+we would only modify it in one single place.
+```
+
+```
+Note 2: We have an Instrumentation class that handles errors. Nowadays we only log the error. 
 If we want to add, for example, a tracking tool in order to register errors, 
 we can do it here without modifying any code.
 ```
@@ -34,7 +40,7 @@ we can do it here without modifying any code.
 In order to use de client you should:
 
 - Execute `go get github.com/rodrinoblega/client-form3` to download de go module
-- Import `github.com/rodrinoblega/client-form` and generate a new service with a URL and a timeout
+- Import `github.com/rodrinoblega/client-form` and generate a new service with an URL and a timeout
 - Import `github.com/rodrinoblega/client-form3/src/useCases/output` to be able to handle the client's inputs and outputs through Account dto
 - Execute `Create`, `Fetch` or `Delete` from the service
 - Example:
@@ -44,9 +50,14 @@ In order to use de client you should:
 
 ## Test
 
-There are unit tests and a functional test (`functional_test.go`) that test the entire flow of the application
+The implementation was made following TDD (Test driven development).
 
-We have 100% of code coverage:
+Types of test:
+* Unit Tests: Used to test packages individually
+* Functional tests: Used to test the entire application flow 
+
+
+We can find a 100% of code coverage:
 ![](static/CodeCoverage.png)
 
 To run the test locally, you should run:
